@@ -1,20 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: hello-world-deployment
+  name: hello-world-deployment
 spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: hello-world-pod
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-pod
+  template:
+    metadata:
+      labels:
+        app: hello-world-pod
+    spec:
+      containers:
+        - name: hello-wold
+          image: ghcr.io/vanny96/hello-world:1.9.0
+          ports:
+            - name: hw-dep-port
+              containerPort: 8080
+'':
+  spec:
     template:
-        metadata:
-            labels:
-                app: hello-world-pod
-        spec:
-            containers:
-                - name: hello-wold
-                  image: ghcr.io/vanny96/hello-world:1.9.0
-                  ports:
-                      - name: hw-dep-port
-                        containerPort: 8080
+      spec:
+        containers:
+          - image: ghcr.io/vanny96/hello-world:1.11.2
