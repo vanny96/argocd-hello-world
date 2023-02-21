@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+    name: hello-world-project
+    namespace: argocd
+    finalizers:
+        - resources-finalizer.argocd.argoproj.io
+spec:
+    description: Hello world project
+
+    sourceRepos:
+        - 'https://github.com/vanny96/argocd-hello-world'
+
+    destinations:
+        - namespace: hello-world
+          server: https://kubernetes.default.svc
+
+    clusterResourceWhitelist:
+        - group: ''
+          kind: Namespace
+
+    namespaceResourceBlacklist:
+        - group: ''
+          kind: ResourceQuota
+        - group: ''
+          kind: LimitRange
+        - group: ''
+          kind: NetworkPolicy
+
+    roles: []
