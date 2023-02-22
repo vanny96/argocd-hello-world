@@ -49,6 +49,9 @@ jobs:
             - name: Setup yq
               uses: chrisdickinson/setup-yq@latest
 
+            - name: Pull changes
+              run:  git pull origin master
+
             - name: Change file
               run: |
                 yq --help
