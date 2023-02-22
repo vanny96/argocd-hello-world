@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: hello-wold
-          image: ghcr.io/vanny96/hello-world:2.0.0
+          image: ghcr.io/vanny96/hello-world:2.0.1
           ports:
             - name: hw-dep-port
               containerPort: 8080
