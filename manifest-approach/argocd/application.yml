@@ -8,7 +8,7 @@ spec:
     source:
         repoURL: https://github.com/vanny96/argocd-hello-world
         targetRevision: HEAD
-        path: manifest
+        path: manifest-approach/manifest
     destination:
         server: https://kubernetes.default.svc
         namespace: hello-world

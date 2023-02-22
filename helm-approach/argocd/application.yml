@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+    name: hello-world-helm-app
+    namespace: argocd
+spec:
+    project: hello-world-helm-project
+    source:
+        repoURL: https://github.com/vanny96/argocd-hello-world
+        targetRevision: HEAD
+        path: helm-approach/helm
+    destination:
+        server: https://kubernetes.default.svc
+        namespace: hello-world-helm
+    syncPolicy:
+        automated: {}
+        syncOptions:
+            - CreateNamespace=true

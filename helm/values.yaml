@@ -1,2 +1,0 @@
-deployment:
-    image: ghcr.io/vanny96/hello-world:1.9.0

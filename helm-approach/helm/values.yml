@@ -1,0 +1,4 @@
+deployment:
+    image:
+        name: ghcr.io/vanny96/hello-world
+        tag: 1.9.0
