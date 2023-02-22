@@ -49,6 +49,13 @@ jobs:
             - name: Setup yq
               uses: chrisdickinson/setup-yq@latest
 
+            - name: Pull changes
+              run:  |
+                git fetch
+                git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                git config --local user.name "github-actions[bot]"
+                git rebase origin/master
+
             - name: Change file
               run: |
                 yq --help
@@ -57,8 +64,6 @@ jobs:
             - name: Commiting changes
               run: |
                 git status
-                git config --local user.email "github-actions[bot]@users.noreply.github.com"
-                git config --local user.name "github-actions[bot]"
                 git add .
                 git commit -m "Updates deployment version"
                 git tag ${{env.RELEASE_VERSION}}-deployment
@@ -87,7 +92,11 @@ jobs:
               uses: chrisdickinson/setup-yq@latest
 
             - name: Pull changes
-              run:  git pull origin master
+              run:  |
+                git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                git config --local user.name "github-actions[bot]"
+                git fetch
+                git rebase origin/master
 
             - name: Change file
               run: |
@@ -97,8 +106,6 @@ jobs:
             - name: Commiting changes
               run: |
                 git status
-                git config --local user.email "github-actions[bot]@users.noreply.github.com"
-                git config --local user.name "github-actions[bot]"
                 git add .
                 git commit -m "Updates deployment version"
                 git tag ${{env.RELEASE_VERSION}}-deployment
