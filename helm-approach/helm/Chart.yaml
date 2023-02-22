@@ -3,11 +3,9 @@ name: hello-world
 description: Testing Helm charts
 type: application
 version: 0.1.0
-appVersion: "1.11.4"
-
+appVersion: 2.0.7
 sources:
-    - https://github.com/vanny96/argocd-hello-world
-
+  - https://github.com/vanny96/argocd-hello-world
 maintainers:
-    - name: Giovanni Barbaro
-      email: vanni-96@hotmail.it
+  - name: Giovanni Barbaro
+    email: vanni-96@hotmail.it
