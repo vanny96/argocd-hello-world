@@ -88,8 +88,8 @@ jobs:
 
             - name: Change file
               run: |
-                yq --help
                 yq w -i helm-approach/helm/values.yml 'deployment.image.tag' ${{env.RELEASE_VERSION}}
+                yq w -i helm-approach/helm/Chart.yaml 'appVersion' "${{env.RELEASE_VERSION}}"
 
             - name: Commiting changes
               run: |
