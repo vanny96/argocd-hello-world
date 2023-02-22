@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-    name: hello-world-project
+    name: hello-world-helm-project
     namespace: argocd
     finalizers:
         - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
         - 'https://github.com/vanny96/argocd-hello-world'
 
     destinations:
-        - namespace: hello-world
+        - namespace: hello-world-helm
           server: https://kubernetes.default.svc
 
     clusterResourceWhitelist:

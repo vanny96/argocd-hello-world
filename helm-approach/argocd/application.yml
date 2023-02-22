@@ -9,6 +9,8 @@ spec:
         repoURL: https://github.com/vanny96/argocd-hello-world
         targetRevision: HEAD
         path: helm-approach/helm
+        helm:
+            releaseName: hello-world-helm-app
     destination:
         server: https://kubernetes.default.svc
         namespace: hello-world-helm
